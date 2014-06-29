@@ -114,8 +114,8 @@ Highcharts.theme = {
       backgroundColor: {
          linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
          stops: [
-            [0, '#2a2a2b'],
-            [1, '#3e3e40']
+            [0, '#282828'],
+            [1, '#282828']
          ]
       },
       style: {
@@ -364,11 +364,14 @@ Highcharts.setOptions(Highcharts.theme);
 
     
 </script>
+<style type="text/css">
+    .table-hover tbody tr:hover td
+    {
+        background-color: #3e3e40;
+        }     
+</style>
 
-
-<table   class="table table-hover table-inverse"style=".table tbody tr:hover td, .table tbody tr:hover th {
-    ;
-}" >
+<table   class="table table-hover table-inverse" >
     <tr>
     {% for item in collums[0].split(",")%}
   <td><div class="checkbox checkbox-inverse">
