@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 
-url = "http://finviz.com/export.ashx?v=111&f=earningsdate_nextdays5"
+url = "http://finviz.com/export.ashx?v=171&f=sh_avgvol_o1000,sh_relvol_o2"
 stockdata = urllib.urlopen(url).readlines()
 
 @app.route('/finviz', methods=['GET'])
@@ -22,15 +22,15 @@ def get_finviz_data():
 
 def get_series_data():
     tlist = []
-    for r in stockdata[1:]:
+    for r in stockdata[1:20]:
         tlist.append(r.split(",")[1])   
     return tlist
 
 def get_series_value():
     zlist = []
-    for r in stockdata[1:]:   
+    for r in stockdata[1:20]:   
         try:
-            zlist.append(float(r.split(",")[8])) 
+            zlist.append(float(r.split(",")[3])) 
         except:
             print ""
     return zlist
