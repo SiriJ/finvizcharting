@@ -93,9 +93,23 @@ $(function () {
 
 
 <table   class="table table-hover">
+    <tr>
+    {% for item in collums[0].split(",")%}
+  <td><div class="checkbox">
+    <label>
+      <input type="checkbox"> {{item}}
+    </label>
+  </div>
+  </td>
+  {%  endfor %}
+  
+
+  </tr>
   {% for line in collums %}
     <tr>
+
     {% for item in line.split(",") %}
+
         <td>{{item}}</td>
     {% endfor %}
     </tr>
