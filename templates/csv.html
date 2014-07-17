@@ -1,8 +1,8 @@
 
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
-    <title>Flat UI - Free Bootstrap Framework and Themes</title>
+    <title>dfddd</title>
     <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
 
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
@@ -29,6 +29,20 @@
 
   <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+  <script>
+angular.module('app', []).
+  config(function ($interpolateProvider) {
+    $interpolateProvider.startSymbol('<[');
+    $interpolateProvider.endSymbol(']>');
+  });
+
+</script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+
+<div >
+  <[1+123]>
+</div>
 
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <div class="container-fluid">
@@ -75,9 +89,9 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">{{"{{"+"1+88"+"}}"}} </a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">{{"1"+"12"}}</a></li>
           </ul>
         </li>
       </ul>
@@ -89,9 +103,21 @@
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
   
  <ul class="nav nav-tabs" >
-  <li class="active"><a href="#">Fundamentals</a></li>
-  <li><a href="#">Technicals</a></li>
-  <li><a href="#">News</a></li>
+  <li {% if selectedTab == "Fundamentals" %}
+    class="active"
+    {% endif %}
+
+    ><a href="/finviz">Fundamentals</a></li>
+  <li
+{% if selectedTab == "Technicals" %}
+    class="active"
+    {% endif %}
+  ><a href="/technicals">Technicals</a></li>
+  <li
+{% if selectedTab == "News" %}
+    class="active"
+    {% endif %}
+  ><a href="/news">News</a></li>
 </ul>
     
 
@@ -124,7 +150,7 @@ Highcharts.theme = {
          ]
       },
       style: {
-         fontFamily: "'Unica One', sans-serif"
+         fontFamily: "'Arial', sans-serif"
       },
       plotBorderColor: '#606063'
    },
@@ -376,6 +402,7 @@ Highcharts.setOptions(Highcharts.theme);
         }     
 </style>
 
+{% block maintable %}
 <table   class="table table-hover table-inverse" >
     <tr>
     {% for item in collums[0].split(",")%}
@@ -401,7 +428,7 @@ Highcharts.setOptions(Highcharts.theme);
 </table>
 
 
-
+{%endblock%}
 
 
  
