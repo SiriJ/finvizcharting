@@ -15,7 +15,7 @@ url = "http://finviz.com/export.ashx?v=171&f=sh_avgvol_o1000,sh_relvol_o2"
 url2 = "http://finviz.com/export.ashx?v=141&f=sh_avgvol_o2000"
 
 
-@app.route('/finviz', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_finviz_data():
     yolo = "Finviz Charting Platform"
     stockdata = urllib.urlopen(url).readlines()
